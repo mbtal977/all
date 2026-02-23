@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ALLoul One Hub — Offline Demo</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="card left">
+      <h1>ALLoul One</h1>
+      <p class="muted">Social + Work + AI</p>
+      <nav>
+        <button class="nav active" data-view="home">Home</button>
+        <button class="nav" data-view="network">Network</button>
+        <button class="nav" data-view="workspace">Workspace</button>
+        <button class="nav" data-view="projects">Projects</button>
+        <button class="nav" data-view="tasks">Tasks</button>
+        <button class="nav" data-view="memory">Memory</button>
+        <button class="nav" data-view="handover">Handover</button>
+      </nav>
+    </aside>
+
+    <main id="main"></main>
+
+    <aside class="card right">
+      <h2>AI Assistant</h2>
+      <div class="muted">Today</div>
+      <ul>
+        <li>3 tasks at risk</li>
+        <li>2 new opportunities</li>
+        <li>Handover package draft ready</li>
+      </ul>
+      <textarea id="aiInput" placeholder="Ask AI in context..."></textarea>
+      <button id="askBtn">Ask</button>
+      <pre id="aiOut"></pre>
+    </aside>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>

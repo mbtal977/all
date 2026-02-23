@@ -13,7 +13,9 @@ A 2026-style hybrid platform that combines:
 - Prisma + PostgreSQL
 - NextAuth placeholder endpoint (ready for provider config)
 
-## Getting Started
+## Run Modes
+
+### 1) Full App (Next.js + API routes)
 1. Install dependencies:
    ```bash
    npm install
@@ -36,10 +38,22 @@ A 2026-style hybrid platform that combines:
    npm run dev
    ```
 
+### 2) Offline Demo (no npm install)
+If your environment cannot access npm registry, run a zero-dependency demo:
+```bash
+node scripts/start-demo.mjs
+```
+Then open:
+- `http://localhost:4173`
+
+This mode demonstrates the product shell, hybrid feed/workflow interactions, memory search, AI response mock, and handover package generation in-browser.
+
 ## Folder Structure
 - `app/` UI routes and API handlers
 - `lib/` shared in-memory store + helpers
 - `prisma/` schema + seed script
+- `demo/` offline UI demo assets
+- `scripts/start-demo.mjs` offline demo server
 
 ## MVP Endpoints
 - Auth: `/api/auth/*`
@@ -56,4 +70,5 @@ A 2026-style hybrid platform that combines:
 - Containerized deployment available via `Dockerfile`
 
 ## Notes
-This MVP uses an in-memory data store for API demonstration and UX wiring. Replace handlers with Prisma-backed persistence and real auth sessions for production.
+- Full MVP handlers currently use in-memory data store for rapid demo iteration.
+- Replace handlers with Prisma-backed persistence and real auth sessions for production.
