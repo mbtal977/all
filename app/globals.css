@@ -4,15 +4,53 @@
 
 :root {
   color-scheme: dark;
+  --bg-a: rgba(14, 165, 233, 0.18);
+  --bg-b: rgba(99, 102, 241, 0.18);
+  --bg-c: rgba(16, 185, 129, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --glass-bg: linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.05));
+  --accent: rgb(56 189 248);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.35) transparent;
 }
 
 body {
-  @apply bg-slate-950 text-slate-100;
-  background-image: radial-gradient(circle at top right, rgba(59,130,246,0.18), transparent 35%),
-    radial-gradient(circle at bottom left, rgba(16,185,129,0.18), transparent 30%);
+  @apply text-slate-100 antialiased;
+  background-color: #020617;
+  background-image:
+    radial-gradient(circle at 5% -10%, var(--bg-a), transparent 35%),
+    radial-gradient(circle at 100% 0%, var(--bg-b), transparent 40%),
+    radial-gradient(circle at 0% 100%, var(--bg-c), transparent 42%);
   min-height: 100vh;
 }
 
-.card {
-  @apply rounded-2xl border border-white/10 bg-white/5 p-4 shadow-glow backdrop-blur-md;
+.card,
+.glass-card {
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  @apply rounded-2xl p-5 shadow-[0_20px_55px_rgba(2,6,23,0.45)] backdrop-blur-xl;
+}
+
+.glass-interactive {
+  @apply transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_26px_60px_rgba(2,6,23,0.55)];
+}
+
+.mode-public {
+  --bg-a: rgba(14, 165, 233, 0.2);
+  --bg-b: rgba(99, 102, 241, 0.22);
+  --accent: rgb(56 189 248);
+}
+
+.mode-company {
+  --bg-a: rgba(59, 130, 246, 0.12);
+  --bg-b: rgba(168, 85, 247, 0.2);
+  --bg-c: rgba(56, 189, 248, 0.08);
+  --accent: rgb(168 85 247);
+}
+
+.accent-ring {
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--accent) 45%, white 30%);
 }
